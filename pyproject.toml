@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "folder-sync"
+version = "1.0.0"
+description = "Safe, preview-first one-way folder synchronization with manifests and verification."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Radwan Abdulhadi Ahmed"}]
+keywords = ["sync", "backup", "files", "cli"]
+
+[project.scripts]
+folder-sync = "folder_sync.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/folder_sync"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
